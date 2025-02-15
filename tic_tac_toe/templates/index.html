@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Play{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+        <h1 class="mb-4">Tic Tac Toe</h1>
+        <div class="game-status mb-3">
+            <h3 id="status">Your turn (X)</h3>
+        </div>
+        <div class="game-board">
+            {% for i in range(9) %}
+                <div class="cell" data-index="{{ i }}">{{ board[i] }}</div>
+            {% endfor %}
+        </div>
+        <button id="reset-game" class="btn btn-primary mt-4">New Game</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}
